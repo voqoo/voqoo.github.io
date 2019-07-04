@@ -184,6 +184,26 @@
 <p><strong>Initialization</strong>:when j=2,the array only consists of A[1].This subarray is sorted.</p>
 <p><strong>Maintenance</strong>:The loop works by moving A[j-1],A[j-2],A[j-3]… by one position right until it finds the proper position for A[j],at which point it inserts the value of A[j].The subarray A[1..j] then consists of the elements originally in A[1..j],but in sorted order.Increasing j for the next iteration preserves the loop invariant.</p>
 <p><strong>Termination</strong>:The condition causing for loop to terminate is that j&gt;A.length=n.Then we have the subarray A[1..n] consists of the elements originally in A[1..n],but in sorted order.Observing the A[1..n] is the entire array,we conclude that the entire array is sorted!Hence the algorithm is correct.</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">										cost	times</span><br><span class="line">for j=2 to A.length						c1		n</span><br><span class="line">	key=A[j]							c2		n-1</span><br><span class="line">	i=j-1								c4		n-1</span><br><span class="line">	while i&gt;0 and A[i]&gt;key				c5		$$\sum_&#123;j=2&#125;^&#123;n&#125;t_j$$</span><br><span class="line">		A[i+1]=A[i]						c6		$$\sum_&#123;j=2&#125;^&#123;n&#125;(t_j-1)$$</span><br><span class="line">		i=i-1							c7		$$\sum_&#123;j=2&#125;^&#123;n&#125;(t_j-1)$$</span><br><span class="line">	A[i+1]=key							c8		n-1</span><br></pre></td></tr></table></figure>
+<h4 id="running-time"><a href="#running-time" class="headerlink" title="running time"></a>running time</h4><p>T(n),the running time of INSERTION-SORT on an input of n values.</p>
+<p>​    $T(n)=c_1n+c_2(n-1)+c_4(n-1)+c_5\sum\limits_{j=2}^{n}t_j+c_6\sum\limits_{j=2}^{n}(t_j-1)+c_7\sum\limits_{j=2}^{n}(t_j-1)+c_8(n-1)$</p>
+<h4 id="best-case"><a href="#best-case" class="headerlink" title="best case"></a>best case</h4><p>The best case occurs if the array is already sorted.For each j=2,3…,n,we then find that A[j]&lt;=key in line 4 when i has its initial value of j-1.Thus t<sub>j</sub>=1 for j=2,3,…,n and the best-case running time is</p>
+<p>​    $T_{best-case}(n)=c_1n+c_2(n-1)+c_4(n-1)+c_5(n-1)+c_8(n-1)\\\quad \quad =(c_1+c_2+c_4+c_5+c_8)n-(c_2+c_4+c_5+c_8)$</p>
+<p>We can express this running time as</p>
+<p>​    $T_{best-case}(n)=an+b$</p>
+<p>for constants a and b that depend on the statement costs c<sub>j</sub> ;it is thus a linear function of n.</p>
+<h4 id="worst-case"><a href="#worst-case" class="headerlink" title="worst case"></a>worst case</h4><p>The worst case occurs if the array is in reverse sorted order.</p>
+<p>Then we must compare each element A[j] with each element in the entire sorted subarray A[1…j-1],and so t<sub>j</sub> =j for j=2,3,…,n.Noting that</p>
+<p>​    $\sum\limits_{j=2}^{n}j=\frac{n(n+1)}{2}-1\\and\\\sum\limits_{j=2}^{n}(j-1)=\frac{n(n-1)}{2}$</p>
+<p>Find that in the worst case,the running time is</p>
+<p>​    $T_{worst-case}(n)=c_1n+c_2(n-1)+c_4(n-1)+c_5(\frac{n(n+1)}{2}-1)+c_6<em>\frac{n(n-1)}{2}+c_7</em>\frac{n(n-1)}{2}+c_8(n-1)\\\quad \quad =\frac{1}{2}(c_5+c_6+c_7)<em>n^2+(c_1+c_2+c_4+\frac{c_5}{2}-\frac{c_6}{2}-\frac{c_7}{2}+c_8)</em>n-(c_2+c_4+c_5+c_8)$</p>
+<p>We can express this running time as</p>
+<p>​    $T_{worst-case}(n)=an^2+bn+c$</p>
+<p>for constants a,b and c that depend on the statement cost c<sub>j</sub> ;it is thus a quadratic function of n.</p>
+<h2 id="Order-of-Growth"><a href="#Order-of-Growth" class="headerlink" title="Order of Growth"></a>Order of Growth</h2><p>It is the rate of growth,or order of growth of the running time that really interests us.</p>
+<p>Therefore we consider only the leading term of a formula.And we also ignore the leading term’s constant coefficient.</p>
+<p>In the case of insertion sort,we write it has a worst-case running time of</p>
+<p>​    $\Theta(n^2)$</p>
 
         </div>
     
