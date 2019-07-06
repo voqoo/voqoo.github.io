@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Insertion Sort on Small Arrays in Merge Sort]]></title>
+    <url>%2F2019%2F07%2F06%2FInsertion-Sort-on-Small-Arrays-in-Merge-Sort%2F</url>
+    <content type="text"><![CDATA[ProblemAlthough merge sort runs in O(nlgn) worst-case time and insertion sort runs in (n2) worst-case time, the constant factors in insertion sort can make it faster in practice for small problem sizes on many machines. Thus, it makes sense to coarsen the leaves of the recursion by using insertion sort within merge sort when subproblems become sufficiently small. Consider a modification to merge sort in which n/k sublists of length k are sorted using insertion sort and then merged using the standard merging mechanism, where k is a value to be determined.a. Show that insertion sort can sort the n/k sublists, each of length k, in O(nk) worst-case time.b. Show how to merge the sublists in O(nlg(n/k)) worst-case time.c. Given that the modified algorithm runs in O(nk+nlg(n/k)) worst-case time,what is the largest value of k as a function of n for which the modified algorithm has the same running time as standard merge sort, in terms of O-notation?d. How should we choose k in practice? ProofsProof a.For every sublist in the size of k,the worst case running time is ​ \Theta(k^2) Together we have n/k sublists in total,so the total running time to sort them with insertion sort is ​ \Theta(\frac{n}{k}*k^2)=\Theta(nk) Proof b.When we sort the n/k sublists,we have previous running time ​ \Theta(nk) To recursively merge these sublists into one list,we spend ​ \Theta(nlgn-\frac{n}{k}*klg(k))=\Theta(nlgn-nlgk)=\Theta(nlg(\frac{n}{k})) So we have ​ \Theta(nk+nlg(\frac{n}{k})) in total. Proof c.Proof d.]]></content>
+      <tags>
+        <tag>algorithm</tag>
+        <tag>sort</tag>
+        <tag>divide and conquer</tag>
+        <tag>updating</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Binary Search]]></title>
+    <url>%2F2019%2F07%2F05%2FBinary-Search%2F</url>
+    <content type="text"><![CDATA[AlgorithmFor a sorted sequence,we can check the midpoint of it against the target value and estimate half of the sequence from further consideration,halfing the size of remaining portion of the sequence each time. 1234567891011BINARY-SEARCH(x) l=1 r=A.length while(l!=r) mid=floor((l+r)/2) //Assume that A is in ascending order if A[mid]&gt;=x r=mid else l=mid+1 //if x is one element in A return true return (x==A[l]) Analysisworst caseAssume the target value lies on the bottom or the top of the array. Then the worst case running time is \Theta(lgn)]]></content>
+      <tags>
+        <tag>algorithm</tag>
+        <tag>sort</tag>
+        <tag>binary search</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Merge Sort]]></title>
     <url>%2F2019%2F07%2F05%2FMerge-Sort%2F</url>
     <content type="text"><![CDATA[AlgorithmDivide the n-element sequence to be sorted into two subsequences of n/2 elements each. Conquer: Sort the two subsequences recursively using merge sort. Combine the two sorted subsequences to produce the sorted answer.Merge by calling the auxiliary procedure MERGE(A,p,q,r),where A is an array and p,q,and r are indices into the array to describe the subarrays. ​ Returning to our card playing motif,suppose we have two piles of cards and merge them into a single sorted output pile by choosing the smaller of two cards on the top of the two piles,removing it from its pile and placing this card to the output file.Repeat this step until the two piles are empty.It takes time: ​ \Theta(n),where\quad n=r-p+1 ​ But there might be too much trouble to check either pile is empty in each basic step.So we place on the bottom of each pile a sentinel card,which contains a special value that we use to simplify our code: ​ +\infty ​ So that whenever a card with infinite value is exposed it cannot be the smaller one thus it won’t be taken to the output pile.Meanwhile,we use a counter to terminate the procedure when it increase to r-p+1,where all the r-p+1 cards are put into the output pile. 123456789101112131415161718192021222324MERGE(A,p,q,r) n1=q-p+1 n2=r-q let L[1...n1+1] and R[1...n2+1] be new arrays for i=1 to n1 L[i]=A[p+i-1] for i=1 to n2 R[i]=A[q+i] L[n1+1]=INF R[n2+1]=INF i=1 j=1 for k=p to r if L[i]&lt;=R[j] A[k]=L[i] i=i+1 else A[k]=R[j] j=j+1MERGE-SORT(A,p,r) if p&lt;r q=floor((p+r)/2) MERGE-SORT(A,p,q) MERGE-SORT(A,q+1,r) MERGE(A,p,q,r) AnalysisSet up the recurrence for T(n),the worst running time of merge sort on n numbers. Divide:This step just computes the middle of the array,which takes constant time. ​ D(n)=\Theta(1) Conquer:we recursively solve two subproblems,which takes ​ 2T(n/2) Combine:already noted that MERGE procedure on an n-element subarray takes time O(n) ​ C(n)=\Theta(n) T(n)=\begin{cases}c\quad\quad if\quad n=1,\\2T(n/2)+cn\quad\quad if\quad n>1\end{cases}We construct a recursion tree. The total number of levels of the tree is lgn+1 which can be proved by induction. The tree has lgn+1 levels,each costing cn time,for a total cost of ​ cn(log_2(n)+1)=cnlgn+cn. Result ​ \Theta(nlgn)]]></content>
       <tags>
         <tag>algorithm</tag>
-        <tag>divide and conquer</tag>
         <tag>sort</tag>
+        <tag>divide and conquer</tag>
       </tags>
   </entry>
   <entry>

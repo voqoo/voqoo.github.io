@@ -10,6 +10,8 @@
 
     <!--Description-->
     
+        <meta name="description" content="ProblemAlthough merge sort runs in O(nlgn) worst-case time and insertion sort runs in (n2) worst-case time, the constant factors in insertion sort can">
+    
 
     <!--Author-->
     
@@ -18,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="voqoo">
+        <meta property="og:title" content="Insertion Sort on Small Arrays in Merge Sort">
     
 
     <!--Open Graph Description-->
@@ -29,7 +31,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -40,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>Archives - voqoo</title>
+    <title>Insertion Sort on Small Arrays in Merge Sort - voqoo</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -127,9 +129,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -137,97 +137,67 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">Archives</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2019/07/05/Analysis-of-Linear-Search/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        Analysis of Linear Search
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/07/06/Insertion-Sort-on-Small-Arrays-in-Merge-Sort/">
+                Insertion Sort on Small Arrays in Merge Sort
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-07-06</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Although merge sort runs in O(nlgn) worst-case time and insertion sort runs in (n<sup>2</sup>) worst-case time, the constant factors in insertion sort can make it faster in practice for small problem sizes on many machines. Thus, it makes sense to coarsen the leaves of the recursion by using insertion sort within merge sort when subproblems become sufficiently small. Consider a modification to merge sort in which n/k sublists of length k are sorted using insertion sort and then merged using the standard merging mechanism, where k is a value to be determined.<br><strong>a.</strong> Show that insertion sort can sort the n/k sublists, each of length k, in O(nk) worst-case time.<br><strong>b.</strong> Show how to merge the sublists in O(nlg(n/k)) worst-case time.<br><strong>c.</strong> Given that the modified algorithm runs in O(nk+nlg(n/k)) worst-case time,what is the largest value of k as a function of n for which the modified algorithm has the same running time as standard merge sort, in terms of O-notation?<br><strong>d.</strong> How should we choose k in practice?</p>
+<h2 id="Proofs"><a href="#Proofs" class="headerlink" title="Proofs"></a>Proofs</h2><h4 id="Proof-a"><a href="#Proof-a" class="headerlink" title="Proof a."></a>Proof a.</h4><p>For every sublist in the size of k,the worst case running time is</p>
+<p>​    <script type="math/tex">\Theta(k^2)</script></p>
+<p>Together we have n/k sublists in total,so the total running time to sort them with insertion sort is</p>
+<p>​    <script type="math/tex">\Theta(\frac{n}{k}*k^2)=\Theta(nk)</script></p>
+<h4 id="Proof-b"><a href="#Proof-b" class="headerlink" title="Proof b."></a>Proof b.</h4><p>When we sort the n/k sublists,we have previous running time</p>
+<p>​    <script type="math/tex">\Theta(nk)</script></p>
+<p>To recursively merge these sublists into one list,we spend</p>
+<p>​    <script type="math/tex">\Theta(nlgn-\frac{n}{k}*klg(k))=\Theta(nlgn-nlgk)=\Theta(nlg(\frac{n}{k}))</script></p>
+<p>So we have</p>
+<p>​    <script type="math/tex">\Theta(nk+nlg(\frac{n}{k}))</script></p>
+<p>in total.</p>
+<h4 id="Proof-c"><a href="#Proof-c" class="headerlink" title="Proof c."></a>Proof c.</h4><h4 id="Proof-d"><a href="#Proof-d" class="headerlink" title="Proof d."></a>Proof d.</h4>
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/algorithm/">#algorithm</a> <a href="/tags/sort/">#sort</a> <a href="/tags/divide-and-conquer/">#divide and conquer</a> <a href="/tags/updating/">#updating</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
 </div>
-            
-                <div class="archive-post">
-    <a href="/2019/07/05/Binary-Search/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        Binary Search
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2019/07/06/Insertion-Sort-on-Small-Arrays-in-Merge-Sort/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        Insertion Sort on Small Arrays in Merge Sort
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2019/07/05/Divide-and-Conquer/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        Divide and Conquer
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2019/07/03/Say-Hi/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        Wie wird man seinen Schatten los?
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2019/07/05/Selection-Sort/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        Selection Sort
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2019/07/03/Insert-Sort-List/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        Insert Sort List
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2019/07/04/Insertion-Sort/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        Insertion Sort
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2019/07/05/Merge-Sort/">
-        <span class="archive-date">
-            Jul 2019
-        </span>
-        Merge Sort
-    </a>
-</div>
-            
         </section>
+
     </div>
 </div>
+
 
 </div>
 
