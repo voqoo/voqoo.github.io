@@ -147,6 +147,50 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2019/07/22/Inversions/">
+                Inversions
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-07-22</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Let A[1..n] be an array of n distinct numbers. If i &lt; j and A[i] &gt; A[j], then the pair( i , j ) is called an inversion of A.</p>
+<p>a. List the five inversions of the array <2,3,8,6,1>.</2,3,8,6,1></p>
+<p>b. What array with elements from the set {1,2,…,n} has the most inversions?How many does it have?<br>c. What is the relationship between the running time of insertion sort and the number of inversions in the input array? Justify your answer.<br>d. Give an algorithm that determines the number of inversions in any permutation on n elements in O(n lg n) worst-case time. (Hint: Modify merge sort.)</p>
+<h2 id="Proofs"><a href="#Proofs" class="headerlink" title="Proofs"></a>Proofs</h2><h3 id="Proof-a"><a href="#Proof-a" class="headerlink" title="Proof a"></a>Proof a</h3><p>pair(2,1)</p>
+<p>pair(3,1)</p>
+<p>pair(8,1)</p>
+<p>pair(6,1)</p>
+<p>pair(8,6)</p>
+<h3 id="Proof-b"><a href="#Proof-b" class="headerlink" title="Proof b"></a>Proof b</h3><p>If the array is listed in descending order then it has the most inversions</p>
+<p>​    <script type="math/tex">\sum_{i=1}^{n-1}i=\frac{n(n-1)}{2}</script></p>
+<h3 id="Proof-c"><a href="#Proof-c" class="headerlink" title="Proof c"></a>Proof c</h3><p>For a certain element in array A</p>
+<p><img src="data:image/png;base64,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" alt="avatar"></p>
+<p>No matter how we change the order of A[1,…,i-1] or A[i+1,…,n],the inversion pair number of this element won’t change.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for j=2 to A.length</span><br><span class="line">	key=A[j]</span><br><span class="line">	i=j-1</span><br><span class="line">	while i&gt;0 and A[i]&gt;key</span><br><span class="line">		A[i+1]=A[i]</span><br><span class="line">		i=i-1</span><br><span class="line">	A[i+1]=key</span><br></pre></td></tr></table></figure>
+<p>For the distinct count,we only consider the contribution of the inversion pairs of element i in A[1,…,i-1],whose number of inversion pairs in A[1,…,i-1] is c[i].Then we shall take c[i] steps to insert A[i] into the previous subarray A[1,…,i-1].</p>
+<p>And the total running time is</p>
+<script type="math/tex; mode=display">T(n)=\sum_{i=1}^{n}c_i</script><h3 id="Proof-d"><a href="#Proof-d" class="headerlink" title="Proof d"></a>Proof d</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Total=0</span><br><span class="line">MERGE(A,p,q,r)</span><br><span class="line">	n1=q-p+1</span><br><span class="line">	n2=r-q</span><br><span class="line">	let L[1...n1+1] and R[1...n2+1] be new arrays</span><br><span class="line">	for i=1 to n1</span><br><span class="line">		L[i]=A[p+i-1]</span><br><span class="line">	for i=1 to n2</span><br><span class="line">		R[i]=A[q+i]</span><br><span class="line">	L[n1+1]=INF</span><br><span class="line">	R[n2+1]=INF</span><br><span class="line">	i=1</span><br><span class="line">	j=1</span><br><span class="line">	for k=p to r</span><br><span class="line">		if L[i]&lt;=R[j]</span><br><span class="line">			A[k]=L[i]</span><br><span class="line">			i=i+1</span><br><span class="line">		else A[k]=R[j]</span><br><span class="line">			 Total=Total+n1-i+1</span><br><span class="line">			 j=j+1</span><br><span class="line">MERGE-SORT(A,p,r)</span><br><span class="line">	if p&lt;r</span><br><span class="line">		q=floor((p+r)/2)</span><br><span class="line">		MERGE-SORT(A,p,q)</span><br><span class="line">		MERGE-SORT(A,q+1,r)</span><br><span class="line">		MERGE(A,p,q,r)</span><br></pre></td></tr></table></figure>
+<p>Total is the number of inversion pairs of the whole sequence.</p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2019/07/22/Correctness-of-Horner-s-Rule/">
                 Correctness of Horner's Rule
             </a>
@@ -650,39 +694,6 @@
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2019/07/05/Analysis-of-Linear-Search/">
-                Analysis of Linear Search
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2019-07-05</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><h4 id="Average"><a href="#Average" class="headerlink" title="Average"></a>Average</h4><p>Assum that the element being searched for is equally likely to be any element in the array.</p>
-<p>We use mathematical expectation to describe the average checking steps.</p>
-<script type="math/tex; mode=display">E(n)=\frac{1}{n}*(1+2+...+n)=\frac{n+1}{2}</script><p>Average running time</p>
-<p>​    <script type="math/tex">\overline{T}(n)=\Theta(n)</script></p>
-<h4 id="Worst-Case"><a href="#Worst-Case" class="headerlink" title="Worst Case"></a>Worst Case</h4><p>Obviously,if we search for A[n] and our loop start iterating from A[1] then it’s the worst case.</p>
-<p>Worst running time</p>
-<p>​    <script type="math/tex">T_{worst-case}(n)=\Theta(n)</script></p>
-
-        </div>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
@@ -725,6 +736,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2019/07/22/Inversions/">Inversions</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2019/07/22/Correctness-of-Horner-s-Rule/">Correctness of Horner&#39;s R</a>
             </li>
             
@@ -734,10 +749,6 @@
             
             <li>
                 <a class="footer-post" href="/2019/07/08/Chapter-4-Conservation-of-Energy/">Chapter 4.Conservation of</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/07/08/Chapter-2-Basic-Physics/">Chapter 2.Basic Physics</a>
             </li>
             
         </ul>
