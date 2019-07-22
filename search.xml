@@ -6,7 +6,7 @@
     <content type="text"><![CDATA[ProblemThe following code fragment implements Horner’s rule for evaluating a polynomial: P(x)=\sum_{k=0}^{n}a_k*x^k\\\quad\quad=a_0+x(a_1+x(a_2+...+x(a_{n-1}+xa_n)))given the coefficients a0,a1,…,an and a value for x. 123y=0for i=n downto 0 y=a[i]+x*y a. In terms of \Theta-notation, what is the running time of this code fragment for Horner’s rule? b. Write pseudocode to implement the naive polynomial-evaluation algorithm that computes each term of the polynomial from scratch. What is the running time of this algorithm? How does it compare to Horner’s rule? c. Consider the following loop invariant:At the start of each iteration of the for loop of lines 2–3, ​ y=\sum_{k=0}^{n-(i+1)} a_{k+i+1}*x^k Interpret a summation with no terms as equaling 0. Following the structure of the loop invariant proof presented in this chapter, use this loop invariant to show that, at termination,y=\sum_{k=0}^{n}a_k*x^k. d. Conclude by arguing that the given code fragment correctly evaluates a polynomial characterized by the coefficients a0,a1,…,an ProofsProof aT_{Horner's}(n)=\Theta(n)Proof bT_{naive}(n)=\Theta(n^2)Proof cif at the end of loop i=m,we have y=x\sum_{k=0}^{n-(i+1)} a_{k+i+1}*x^k+a_ithen,at the end of loop i-1,we have y=x*(x\sum_{k=0}^{n-(i+1)} a_{k+i+1}*x^k+a_i)+a_{i-1}\\\quad=x\sum_{k=0}^{n-(i)} a_{k+i}*x^k+a_{i-1}thus when i=0 y=\sum_{k=0}^{n-1} a_{k+1}*x^k+a_0=\sum_{k=0}^{n}a_{k}*x^kProof d…]]></content>
       <tags>
         <tag>algorithm</tag>
-        <tag>sort</tag>
+        <tag>polynomial</tag>
       </tags>
   </entry>
   <entry>
