@@ -147,6 +147,48 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2019/07/05/Selection-Sort/">
+                Selection Sort
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-07-05</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><h4 id="Input"><a href="#Input" class="headerlink" title="Input:"></a>Input:</h4><p>A sequence of n numbers</p>
+<p>​            <script type="math/tex"><a_1,a_2,...,a_n></script></p>
+<h4 id="Output"><a href="#Output" class="headerlink" title="Output:"></a>Output:</h4><p>A permutation(reordering) of the input sequence</p>
+<p>​            $&lt;a_1^{‘},a_2^{‘},…,a_n^{‘}&gt;$</p>
+<p>such that</p>
+<p>​            $a_1^{‘}\leq a_2^{‘}\leq …\leq a_n^{‘}$</p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p>Store the sequence in array A.First find the smallest element of A and exchange it with A[1].Then find the second smallest element of A,and exchange it with A[2].Continue this manner n-1 times.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for i=1 to A.length-1</span><br><span class="line">	pos=i</span><br><span class="line">	key=A[i]</span><br><span class="line">	for j=i+1 to A.length</span><br><span class="line">		if A[j]&lt;key then</span><br><span class="line">			pos=j</span><br><span class="line">			key=A[j]</span><br><span class="line">	A[pos]=A[i]</span><br><span class="line">	A[i]=key</span><br></pre></td></tr></table></figure>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><h4 id="Loop-Invariant"><a href="#Loop-Invariant" class="headerlink" title="Loop Invariant"></a>Loop Invariant</h4><p><strong>Initialization</strong></p>
+<p>When i=1,the loop will find the smallest element and exchange it with A[1].Then our new permutation only consists of A<sup>‘</sup>[1] (the exchanged one).This subarray is sorted.</p>
+<p><strong>Maintenance</strong></p>
+<p>When we have the sub array consist of m-1 numbers,we scan the rest n-m+1 ones to find the m<sup>th</sup> smallest one of A.If we’ve done the previous process correctly,then the newly found m<sup>th</sup> smallest element is bigger than every element in the m-1 subarray.Thus the new m subarray is still sorted.</p>
+<p><strong>Termination</strong></p>
+<p>The condition causing the loop to terminate is that i &gt; A.length-1 = n-1.Then we have the subarray consists of n-1 elements originally in A.If we’ve done the previous process correctly,then the only element left must be the biggest one of A.So the final array A[1…n] is sorted.Hence the algorithm is right.</p>
+<h4 id="Running-Time"><a href="#Running-Time" class="headerlink" title="Running Time"></a>Running Time</h4><p>​    <script type="math/tex">T_{best-case}(n)=\Theta(n)</script></p>
+<p>​    <script type="math/tex">T_{worst-case}(n)=\Theta(n^2)</script></p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2019/07/04/Insertion-Sort/">
                 Insertion Sort
             </a>
@@ -321,6 +363,10 @@ sid=453291531&type=2&auto=0&width=320&height=66" type="application/x-shockwave-f
         <ul>
             
             <li>
+                <a class="footer-post" href="/2019/07/22/Correctness-of-Horner-s-Rule/">Correctness of Horner&#39;s R</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2019/07/22/Correctness-of-Bubblesort/">Correctness of Bubblesort</a>
             </li>
             
@@ -330,10 +376,6 @@ sid=453291531&type=2&auto=0&width=320&height=66" type="application/x-shockwave-f
             
             <li>
                 <a class="footer-post" href="/2019/07/08/Chapter-2-Basic-Physics/">Chapter 2.Basic Physics</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/07/07/Chapter-1-Atoms-in-Motion/">Chapter 1.Atoms in Motion</a>
             </li>
             
         </ul>

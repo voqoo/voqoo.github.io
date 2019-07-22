@@ -10,7 +10,8 @@
 
     <!--Description-->
     
-        <meta name="description" content="ProblemAlthough merge sort runs in O(nlgn) worst-case time and insertion sort runs in (n2) worst-case time, the constant factors in insertion sort can">
+        <meta name="description" content="ProblemThe following code fragment implements Horner’s rule for evaluating a polynomial:
+P(x)=\sum_{k=0}^{n}a_k*x^k\\\quad\quad=a_0+x(a_1+x(a_2+...+x(">
     
 
     <!--Author-->
@@ -20,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Insertion Sort on Small Arrays in Merge Sort">
+        <meta property="og:title" content="Correctness of Horner&#39;s Rule">
     
 
     <!--Open Graph Description-->
@@ -42,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>Insertion Sort on Small Arrays in Merge Sort - voqoo</title>
+    <title>Correctness of Horner&#39;s Rule - voqoo</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -146,13 +147,13 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2019/07/06/Insertion-Sort-on-Small-Arrays-in-Merge-Sort/">
-                Insertion Sort on Small Arrays in Merge Sort
+            <a href="/2019/07/22/Correctness-of-Horner-s-Rule/">
+                Correctness of Horner's Rule
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2019-07-06</span>
+                <span class="date">2019-07-22</span>
             
             
             
@@ -165,19 +166,20 @@
         
 
         <!-- Post Content -->
-        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Although merge sort runs in O(nlgn) worst-case time and insertion sort runs in (n<sup>2</sup>) worst-case time, the constant factors in insertion sort can make it faster in practice for small problem sizes on many machines. Thus, it makes sense to coarsen the leaves of the recursion by using insertion sort within merge sort when subproblems become sufficiently small. Consider a modification to merge sort in which n/k sublists of length k are sorted using insertion sort and then merged using the standard merging mechanism, where k is a value to be determined.<br><strong>a.</strong> Show that insertion sort can sort the n/k sublists, each of length k, in O(nk) worst-case time.<br><strong>b.</strong> Show how to merge the sublists in O(nlg(n/k)) worst-case time.<br><strong>c.</strong> Given that the modified algorithm runs in O(nk+nlg(n/k)) worst-case time,what is the largest value of k as a function of n for which the modified algorithm has the same running time as standard merge sort, in terms of O-notation?<br><strong>d.</strong> How should we choose k in practice?</p>
-<h2 id="Proofs"><a href="#Proofs" class="headerlink" title="Proofs"></a>Proofs</h2><h4 id="Proof-a"><a href="#Proof-a" class="headerlink" title="Proof a."></a>Proof a.</h4><p>For every sublist in the size of k,the worst case running time is</p>
-<p>​    <script type="math/tex">\Theta(k^2)</script></p>
-<p>Together we have n/k sublists in total,so the total running time to sort them with insertion sort is</p>
-<p>​    <script type="math/tex">\Theta(\frac{n}{k}*k^2)=\Theta(nk)</script></p>
-<h4 id="Proof-b"><a href="#Proof-b" class="headerlink" title="Proof b."></a>Proof b.</h4><p>When we sort the n/k sublists,we have previous running time</p>
-<p>​    <script type="math/tex">\Theta(nk)</script></p>
-<p>To recursively merge these sublists into one list,we spend</p>
-<p>​    <script type="math/tex">\Theta(nlgn-\frac{n}{k}*klg(k))=\Theta(nlgn-nlgk)=\Theta(nlg(\frac{n}{k}))</script></p>
-<p>So we have</p>
-<p>​    <script type="math/tex">\Theta(nk+nlg(\frac{n}{k}))</script></p>
-<p>in total.</p>
-<h4 id="Proof-c"><a href="#Proof-c" class="headerlink" title="Proof c."></a>Proof c.</h4><h4 id="Proof-d"><a href="#Proof-d" class="headerlink" title="Proof d."></a>Proof d.</h4>
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>The following code fragment implements Horner’s rule for evaluating a polynomial:</p>
+<script type="math/tex; mode=display">P(x)=\sum_{k=0}^{n}a_k*x^k\\\quad\quad=a_0+x(a_1+x(a_2+...+x(a_{n-1}+xa_n)))</script><p>given the coefficients a0,a1,…,an and a value for x.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">y=0</span><br><span class="line">for i=n downto 0</span><br><span class="line">	y=a[i]+x*y</span><br></pre></td></tr></table></figure>
+<p>a. In terms of <script type="math/tex">\Theta-notation</script>, what is the running time of this code fragment for Horner’s rule?</p>
+<p>b. Write pseudocode to implement the naive polynomial-evaluation algorithm that computes each term of the polynomial from scratch. What is the running time of this algorithm? How does it compare to Horner’s rule?</p>
+<p>c. Consider the following loop invariant:<br>At the start of each iteration of the for loop of lines 2–3,</p>
+<p>​    <script type="math/tex">y=\sum_{k=0}^{n-(i+1)} a_{k+i+1}*x^k</script></p>
+<p>Interpret a summation with no terms as equaling 0. Following the structure of the loop invariant proof presented in this chapter, use this loop invariant to show that, at termination,<script type="math/tex">y=\sum_{k=0}^{n}a_k*x^k</script>.</p>
+<p>d. Conclude by arguing that the given code fragment correctly evaluates a polynomial characterized by the coefficients a0,a1,…,an</p>
+<h2 id="Proofs"><a href="#Proofs" class="headerlink" title="Proofs"></a>Proofs</h2><h3 id="Proof-a"><a href="#Proof-a" class="headerlink" title="Proof a"></a>Proof a</h3><script type="math/tex; mode=display">T_{Horner's}(n)=\Theta(n)</script><h3 id="Proof-b"><a href="#Proof-b" class="headerlink" title="Proof b"></a>Proof b</h3><script type="math/tex; mode=display">T_{naive}(n)=\Theta(n^2)</script><h3 id="Proof-c"><a href="#Proof-c" class="headerlink" title="Proof c"></a>Proof c</h3><p>if at the end of loop i=m,we have</p>
+<script type="math/tex; mode=display">y=x\sum_{k=0}^{n-(i+1)} a_{k+i+1}*x^k+a_i</script><p>then,at the end of loop i-1,we have</p>
+<script type="math/tex; mode=display">y=x*(x\sum_{k=0}^{n-(i+1)} a_{k+i+1}*x^k+a_i)+a_{i-1}\\\quad=x\sum_{k=0}^{n-(i)} a_{k+i}*x^k+a_{i-1}</script><p>thus when i=0</p>
+<script type="math/tex; mode=display">y=\sum_{k=0}^{n-1} a_{k+1}*x^k+a_0=\sum_{k=0}^{n}a_{k}*x^k</script><h3 id="Proof-d"><a href="#Proof-d" class="headerlink" title="Proof d"></a>Proof d</h3><p>…</p>
+
     </div>
 
     
@@ -185,7 +187,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/algorithm/">#algorithm</a> <a href="/tags/sort/">#sort</a> <a href="/tags/divide-and-conquer/">#divide and conquer</a> <a href="/tags/updating/">#updating</a>
+            <a href="/tags/algorithm/">#algorithm</a> <a href="/tags/sort/">#sort</a>
         </div>
     
 
